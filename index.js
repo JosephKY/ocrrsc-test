@@ -1,12 +1,7 @@
-const tesseract = require("node-tesseract-ocr");
+const tfi = require("text-from-image");
 const fs = require("fs");
-
-const config = {
-    lang:'eng',
-    oem:1,
-    psm:3
-}
-
-tesseract.recognize(fs.readFileSync("test2.jpg"),config).then((text)=>{
+tfi("complextest2.png").then(text=>{
     console.log(text)
+}).catch(err=>{
+    console.log(err)
 });
